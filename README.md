@@ -18,6 +18,8 @@ https://www.dropbox.com/s/bhqvuap3ywwpgtk/SwedaMart_Release_Notes_3.2.0.61.pdf?d
 
 Explain how to create a new `Pet` using the provided documentation below. 
 
+Here is the link to my exercise: https://github.com/sandyathomas/nylas-tech-writer-take-home/commit/2c802956bfdb5597728e4e1ed1ad1e5c4d45480e#r47380348
+
 ### Proposed Endpoint Add a new Pet
 
 **Example Payload**
