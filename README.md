@@ -11,7 +11,7 @@ The take-home consists of 2 parts:
 ## Writing Sample
 
 Provide a link to your favorite thing you've ever written. It does not have to be documentation related or technical in any way. 
-
+You can also include links to any writing samples that were not part of your application.
 
 ## API Exercise
 
