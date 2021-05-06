@@ -5,7 +5,7 @@ Adds a new pet with with defining categories.
 
 | Method| Endpoint | Description |
 |---|---|---|
-| POST| http://api.nylas.com/pet/createpet/access_token=ACCESSTOKEN| Adds a new pet with additional descriptive fields described below.|
+| POST| http://api.nylas.com/pet/addapet/access_token=ACCESSTOKEN| Adds a new pet with additional descriptive fields described below.|
 
 ## Request Schema
 
