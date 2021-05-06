@@ -1,88 +1,109 @@
-# Nylas Technical Writer Take Home
+# Add a pet
+Adds a new pet with with defining categories.
 
-Thanks for taking the time to complete the Nylas take-home. :tada:
+**Note:** An <a href="http://www.google.com">access token</a> is required for this endpoint.
 
-The take-home consists of 2 parts:
+| Method| Endpoint | Description |
+|---|---|---|
+| POST| http://api.nylas.com/pet/createpet/access_token=ACCESSTOKEN| Adds a new pet with additional descriptive fields described below.|
 
-* Writing sample
-* API exercise;  Nylas is an API company, after all. 
+## Request Schema
 
+<table>
+	<tr>
+		<th>Field Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		<th>Required</th>
+	</tr>
+	<tr>
+		<td>category</td>
+		<td colspan="3">An object containing animal details</td>
+	</tr>
+	<tr>
+		<td>&nbsp &nbsp name</td>
+		<td>String</td>
+		<td>Main animal category classification<br>
+		ex.  <em>breed<em>
+	</td>
+		<td>Yes</td>
+	<tr>
+		<td>&nbsp &nbsp sub</td>
+		<td colspan="3">An object containing secondary animal details </td>
+	</tr>	
+	<tr>
+		<td>&nbsp &nbsp &nbsp &nbsp prop1</td>
+		<td>String</td>
+		<td>Secondary animal description. <br>
+		ex. "Male", "Female"</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>The animals name</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<td>photoURLs</td>
+		<td>Array</td>
+		<td>Contains an array of URL strings to images</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>tags</td>
+		<td colspan="3">An array used to define pets by age</td>
+	</tr>
+	<tr>
+		<td>&nbsp &nbsp name</td>
+		<td>String</td>
+		<td>Age group associated with tag <br>ex. "Kitten, "Juvenile, "Adult"...</td>
+		<td>No</td>
+	</tr>
+	<tr>
+		<td>status</td>
+		<td>String</td>
+		<td>Animal adoption status. Entries limited to “Available”, “Pending”, and “Not Available”</td>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<td>petType</td>
+		<td>String</td>
+		<td>Type of animal<br> Entries currently limited to “Cat”, “Dog”, "Rabbit", and "Fish"</td>
+		<td>Yes</td>
+	</tr>
+</table>
 
-## Writing Sample
+## JSON Request
 
-Provide a link to your favorite thing you've ever written. It does not have to be documentation related or technical in any way. 
-You can also include links to any writing samples that were not part of your application.
-
-## API Exercise
-
-Explain how to create a new `Pet` using the provided documentation below. 
-
-### Proposed Endpoint Add a new Pet
-
-**Example Payload**
-
-application/json
-
-name is required to make a pet
-
-```text
+```
 {
-  "category": { //what category the pet belongs to
-    "name": "string", //category name
+  "category": { 
+    "name": "American Shorthair",
     "sub": {
-      "prop1": "string" //maybe a sub category for the pet
+      "prop1": "Female"
     }
   },
-  "name": "Guru", //pet name
+  "name": "Pyewacket",
   "photoUrls": [
-    "string" // phots of the pet. We aren't going to store images, so provide a URL
+    "www.google.com"
   ],
   "tags": [
     {
-      "name": "string" //let them provide their tags as a way to organize the pets
+      "name": "Adult"
     }
   ],
-  "status": "available", //is the pet avail for adoptions. can also have pending_adoption and adopted.
-  "petType": "cat", //what type of pet. Let's start with cat, dog, rabbit and fish. add more as we get feedback.
+  "status": "Not Available",
+  "petType": "Cat", 
 }
 ```
 
-**Endpoint**
+## Responses
 
-http://api.nylas.com/pet
-
-
-**Returns**
-
-Should return 200 Created and 405 Invalid Input
-
-**Auth**
-Let's stay with Bearer auth using the access_token with scopes of `write:pets` and `read:pets`.
+|HTTP Codes| HTTP Response | Description|
+|---|---|---|
+|200|OK|New pet successfully created|
+|405|Method Not Allowed| Invalid information. New pet was not created.|
 
 
-## Bonus
 
-Use the [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) specification to document the endpoint. 
-
-## Submitting
-
-* Fork this repo
-* Create a new branch on your fork
-* Add the link to your writing sample somewhere in the branch and your API documentation.
-* Share the link, or if it's private, add me as a contributor @tjperry07.
-
-Not sure how to use GitHub, share what you made using Google Drive or Dropbox. 
-
-If something isn't clearly explained, don't hesitate to email us back. 
-
-## Tools
-
-* [Hemingway](http://www.hemingwayapp.com/)
-* [Grammarly](https://www.grammarly.com/)
-* [Stoplight](https://stoplight.io/)
-* [editor.swagger.io](https://editor.swagger.io/)
-* [Redoc](https://github.com/Redocly/redoc)
-* [RapiDoc](https://mrin9.github.io/RapiDoc/)
-* [I'd rather be writing](https://idratherbewriting.com/learnapidoc/)
-* [OpenAPI.Tools](https://openapi.tools/)
-* [Postman](https://www.postman.com/)
